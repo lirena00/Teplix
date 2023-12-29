@@ -7,7 +7,7 @@ from routes import *
 __version__ = "1.0.0"
 
 app = FastAPI(
-	title="AnimeSaga-API",
+	title="AnimeSaga-API ",
 	description="A  API made by  [LiReNa](https://github.com/LiReNa00)"
 )
 
@@ -23,7 +23,7 @@ app.include_router(router=info)
 app.include_router(router=search)
 app.include_router(router=crunchyroll)
 app.include_router(router=recent)
-app.include_router(router=shows)
+app.include_router(router=shows) 
 app.include_router(router=movies)
-#uvicorn main:app --host 0.0.0.0 --port 8080 --reload
+#uvicorn main:app --host 0.0.0.0 --port 8080 --reload 
 
