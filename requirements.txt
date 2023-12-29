@@ -1,5 +1,7 @@
 fastapi
 uvicorn
+libxml2-dev
+libxslt-dev
 requests
 beautifulsoup4
 lxml
