@@ -31,7 +31,7 @@ def decrypt(json_string):
 
 def scrape_data(url):
     response = requests.get(url)
-    page_content = html(response.content, features="lxml")
+    page_content = html(response.content, features="html.parser")
     pattern = r"JScripts = '([^']*)'"
     match = re.search(pattern, str(page_content))
     if match:
@@ -50,7 +50,7 @@ async def stream_content(url:str="https://www.animesaga.in/episodes/my-love-stor
         "User-Agent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36 Edg/120.0.0.0"
     }
     res = requests.get(url, headers=headers)
-    soup = html(res.content, features="lxml")
+    soup = html(res.content, features="html.parser")
     items = soup.find('a', class_='pinterest dt_social')
     post = items['data-id']
     type_ = "tv"
@@ -67,7 +67,7 @@ async def stream_content(url:str="https://www.animesaga.in/episodes/my-love-stor
     print(main_url)
     result = scrape_data(main_url)
     data = decrypt(result)
-    soup = html(data, "lxml")
+    soup = html(data, "html.parser")
     x = str(soup).replace("\\t", "\t").replace("\\n", "\n").replace('\\"', '"')
     pattern = r'token = "([^"]+)"'
     result = {}

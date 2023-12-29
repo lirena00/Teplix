@@ -4,7 +4,7 @@ import html
 import json
 import re
 from bs4 import BeautifulSoup as html
-import lxml
+
 
 tags_metadata = ["AnimeSaga"]
 info= APIRouter(tags=tags_metadata)
@@ -17,7 +17,7 @@ async def get_info(url:str="https://www.animesaga.in/tvshows/the-reincarnation-o
         "User-Agent":"Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36 Edg/120.0.0.0"
     }
     res=requests.get(url,headers=headers)
-    soup=html(res.content,features="lxml")
+    soup=html(res.content,features="html.parser")
     tags=[]
     title=soup.find('h1').text
     div_with_class_sgeneros = soup.find('div', class_='sgeneros')

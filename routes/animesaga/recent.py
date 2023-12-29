@@ -4,7 +4,7 @@ import re
 import html
 import json
 from bs4 import BeautifulSoup as html
-import lxml
+
 
 tags_metadata = ["AnimeSaga"]
 recent= APIRouter(tags=tags_metadata)
@@ -18,7 +18,7 @@ async def get_recent():
     }
     res=requests.get("https://www.animesaga.in/episodes/",headers=headers)
     recent=[]
-    soup=html(res.content,features="lxml")
+    soup=html(res.content,features="html.parser")
     episodes=soup.find('div',id='archive-content').find_all('article')
     for episode in episodes:
         img=episode.find('img')['src']

@@ -3,4 +3,3 @@ uvicorn
 requests
 beautifulsoup4
 cryptography
-lxml

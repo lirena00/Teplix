@@ -3,7 +3,6 @@ from fastapi import APIRouter
 import html
 import json
 from bs4 import BeautifulSoup as html
-import lxml
 
 tags_metadata = ["AnimeSaga"]
 shows= APIRouter(tags=tags_metadata)
@@ -16,7 +15,7 @@ async def tvshows():
         "User-Agent":"Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36 Edg/120.0.0.0"
     }
     res=requests.get("https://www.animesaga.in/tvshows/",headers=headers)
-    soup=html(res.content,features="lxml")
+    soup=html(res.content,features="html.parser")
     shows=[]
     tv=soup.find('div',id='archive-content').find_all('article')
     for item in tv:
