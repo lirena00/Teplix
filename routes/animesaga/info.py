@@ -32,7 +32,7 @@ async def get_info(url:str="https://www.animesaga.in/tvshows/the-reincarnation-o
         episodes_data=[]
         episodes=season.find('ul').find_all('li')
         for episode in episodes:
-            image= episode.find('img')['src']
+            image= episode.find('img')['src'].replace('w154','w400')
             gr= episode.find('a')
             episode_title=gr.text
             link=gr['href']

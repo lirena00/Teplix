@@ -21,7 +21,7 @@ async def get_movies():
     for item in tv:
         gr=item.find('img')
         title=gr['alt']
-        img=gr['src']
+        img=gr['src'].replace('w185','w400')
         link=item.find('a')['href']
         movies.append({
             "img": img,

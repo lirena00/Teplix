@@ -21,7 +21,7 @@ async def get_recent():
     soup=html(res.content,features="html.parser")
     episodes=soup.find('div',id='archive-content').find_all('article')
     for episode in episodes:
-        img=episode.find('img')['src']
+        img=episode.find('img')['src'].replace('w300','w500')
         gr=episode.find('h3').find('a')
         episode_title=gr.text
         link=gr['href']
