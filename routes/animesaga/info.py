@@ -49,6 +49,7 @@ async def get_info(url:str="https://www.animesaga.in/tvshows/the-reincarnation-o
 
     return {
         "title": title,
+        "img":image,
         "tags": tags,
         "seasons": seasons_data
     }
