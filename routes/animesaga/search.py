@@ -22,7 +22,7 @@ async def get_search(query:str):
     for item in items:
         title=item.find('div',class_='title').find('a').text
         link=item.find('a')['href']
-        img=item.find('img')['src'].replace('w92','w450')
+        img=item.find('img')['src'].replace('w92','w400')
         data.append({
             "title": title,
             "link": link,
