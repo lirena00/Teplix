@@ -20,6 +20,7 @@ async def get_search(query:str):
     items = soup.find_all('div',class_='result-item' )
     data = []
     for item in items:
+        
         title=item.find('div',class_='title').find('a').text
         link=item.find('a')['href']
         img=item.find('img')['src'].replace('w92','w400')
